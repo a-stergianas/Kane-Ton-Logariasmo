@@ -2,6 +2,6 @@
 <resources>
 
     <style name="Theme.KaneTonLogariasmo" parent="android:Theme.Material.Light.NoActionBar">
-        <item name="android:statusBarColor">@color/brown_lighter</item>
+        <item name="android:statusBarColor">@color/brown</item>
     </style>
 </resources>

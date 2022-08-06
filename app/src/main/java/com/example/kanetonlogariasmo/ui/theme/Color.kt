@@ -2,7 +2,7 @@ package com.example.kanetonlogariasmo.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
-val Purple200 = Color(0xFFBB86FC)
-val Purple500 = Color(0xFF6200EE)
-val Purple700 = Color(0xFF3700B3)
-val Teal200 = Color(0xFF03DAC5)
+val Brown_Dark = Color(0xFF472E19)
+val Brown = Color(0xFF724A27)
+val Brown_Light = Color(0xFFB4703F)
+val Brown_Lighter = Color(0xFFC7AD7A)
