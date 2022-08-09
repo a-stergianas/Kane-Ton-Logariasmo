@@ -9,14 +9,14 @@
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@drawable/icon"
         android:label="@string/app_name"
-        android:roundIcon="@drawable/rounded_icon"
+        android:roundIcon="@drawable/icon"
         android:supportsRtl="true"
         android:theme="@style/Theme.KaneTonLogariasmo"
         tools:targetApi="31">
         <activity
             android:name=".SetupActivity"
             android:exported="false"
-            android:label="@string/title_activity_setup"
+            android:label="@string/title_activity_addpeople"
             android:theme="@style/Theme.KaneTonLogariasmo" />
         <activity
             android:name=".MainActivity"

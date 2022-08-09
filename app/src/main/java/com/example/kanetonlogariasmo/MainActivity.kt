@@ -21,10 +21,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.kanetonlogariasmo.ui.theme.Brown_Dark
-import com.example.kanetonlogariasmo.ui.theme.Brown_Lighter
-import com.example.kanetonlogariasmo.ui.theme.KaneTonLogariasmoTheme
-import com.example.kanetonlogariasmo.ui.theme.font
+import com.example.kanetonlogariasmo.ui.theme.*
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -52,7 +49,7 @@ fun HomeScreen() {
         verticalArrangement = Arrangement.Top
     ) {
         Image(
-            painter = painterResource(id = R.drawable.cropped_icon),
+            painter = painterResource(id = R.drawable.icon),
             contentDescription = "logo",
             Modifier
                 .width(180.dp)
@@ -73,6 +70,7 @@ fun HomeScreen() {
                     Intent(mContext, SetupActivity::class.java)
                 )
             },
+            shape = Shapes.medium,
             colors = ButtonDefaults.buttonColors(
                 backgroundColor = Brown_Lighter,
                 contentColor = Brown_Dark
@@ -88,6 +86,7 @@ fun HomeScreen() {
         }
         Button(
             onClick = { /*TODO*/ },
+            shape = Shapes.medium,
             colors = ButtonDefaults.buttonColors(
                 backgroundColor = Brown_Lighter,
                 contentColor = Brown_Dark

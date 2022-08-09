@@ -1,4 +1,4 @@
 <resources>
     <string name="app_name">Κάνε τον λογαριασμό</string>
-    <string name="title_activity_setup">SetupActivity</string>
+    <string name="title_activity_addpeople">Άτομα</string>
 </resources>
