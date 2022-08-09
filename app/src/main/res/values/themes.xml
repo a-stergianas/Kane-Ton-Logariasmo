@@ -3,5 +3,6 @@
 
     <style name="Theme.KaneTonLogariasmo" parent="android:Theme.Material.Light.NoActionBar">
         <item name="android:statusBarColor">@color/brown</item>
+        <item name="android:fontFamily">@font/gfsdidot_regular</item>
     </style>
 </resources>
