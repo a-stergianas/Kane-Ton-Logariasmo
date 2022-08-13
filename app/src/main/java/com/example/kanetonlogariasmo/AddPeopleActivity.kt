@@ -1,14 +1,19 @@
 package com.example.kanetonlogariasmo
 
 import android.os.Bundle
+import android.widget.ImageButton
+import android.widget.Space
 import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.material.icons.filled.Delete
+import androidx.compose.material.icons.filled.Edit
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -79,22 +84,75 @@ fun SetupScreen() {
                 .fillMaxSize()
                 .blur(radius = 16.dp)
         )
-        TextButton(
-            onClick = {
-                setShowDialog(true)
-            }
+        Column(
+            modifier = Modifier
+                .fillMaxSize(),
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.Top
         ) {
-            Text(
-                text = "+ Προσθήκη ατόμου",
-                fontFamily = font,
-                fontWeight = FontWeight.Bold,
-                modifier = Modifier.fillMaxWidth(),
-                textAlign = TextAlign.Center,
-                color = Brown_Lighter,
-                fontSize = 20.sp
-            )
 
+            Spacer(modifier = Modifier.height(16.dp))
+            for(n in names){
+                Row (
+                    horizontalArrangement = Arrangement.End,
+                    verticalAlignment = Alignment.Top,
+                    modifier = Modifier.fillMaxWidth()
+                ){
+                    Text(
+                        text = n,
+                        fontFamily = font,
+                        fontWeight = FontWeight.Bold,
+                        textAlign = TextAlign.Center,
+                        color = Color.White,
+                        fontSize = 24.sp
+                    )
+                    Spacer(modifier = Modifier.width(16.dp))
+                    IconButton(
+                        onClick = { /*TODO*/ },
+                        modifier = Modifier
+                            .size(40.dp)
+                            .background(Brown_Lighter)
+                    ) {
+                        Icon(
+                            imageVector = Icons.Default.Edit,
+                            contentDescription = null,
+                            tint = Brown_Dark
+                        )
+                    }
+                    Spacer(modifier = Modifier.width(12.dp))
+                    IconButton(
+                        onClick = { /*TODO*/ },
+                        modifier = Modifier
+                            .size(40.dp)
+                            .background(Brown_Lighter)
+                    ) {
+                        Icon(
+                            imageVector = Icons.Default.Delete,
+                            contentDescription = null,
+                            tint = Brown_Dark
+                        )
+                    }
+                }
+            }
+
+            TextButton(
+                onClick = {
+                    setShowDialog(true)
+                }
+            ) {
+                Text(
+                    text = "+ Προσθήκη ατόμου",
+                    fontFamily = font,
+                    fontWeight = FontWeight.Bold,
+                    modifier = Modifier.fillMaxWidth(),
+                    textAlign = TextAlign.Center,
+                    color = Brown_Lighter,
+                    fontSize = 20.sp
+                )
+
+            }
         }
+
 
         Column(
             modifier = Modifier.fillMaxSize(),
