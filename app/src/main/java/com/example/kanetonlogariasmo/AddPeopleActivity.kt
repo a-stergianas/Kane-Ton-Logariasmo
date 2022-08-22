@@ -1,19 +1,15 @@
 package com.example.kanetonlogariasmo
 
 import android.os.Bundle
-import android.widget.ImageButton
-import android.widget.Space
 import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.Delete
-import androidx.compose.material.icons.filled.Edit
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -33,7 +29,8 @@ import androidx.compose.ui.window.Dialog
 import androidx.compose.ui.window.DialogProperties
 import com.example.kanetonlogariasmo.ui.theme.*
 
-var names = mutableListOf<String>()
+//var names = mutableListOf<String>()
+val names = mutableStateListOf<String>()
 var name: String = ""
 
 class SetupActivity : ComponentActivity() {
@@ -94,42 +91,31 @@ fun SetupScreen() {
             Spacer(modifier = Modifier.height(16.dp))
             for(n in names){
                 Row (
-                    horizontalArrangement = Arrangement.End,
+                    horizontalArrangement = Arrangement.Center,
                     verticalAlignment = Alignment.Top,
                     modifier = Modifier.fillMaxWidth()
                 ){
                     Text(
                         text = n,
+                        Modifier.width(300.dp),
                         fontFamily = font,
                         fontWeight = FontWeight.Bold,
-                        textAlign = TextAlign.Center,
+                        textAlign = TextAlign.Start,
                         color = Color.White,
                         fontSize = 24.sp
                     )
                     Spacer(modifier = Modifier.width(16.dp))
                     IconButton(
-                        onClick = { /*TODO*/ },
+                        onClick = {
+                            names.remove(n)
+                        },
                         modifier = Modifier
                             .size(40.dp)
-                            .background(Brown_Lighter)
-                    ) {
-                        Icon(
-                            imageVector = Icons.Default.Edit,
-                            contentDescription = null,
-                            tint = Brown_Dark
-                        )
-                    }
-                    Spacer(modifier = Modifier.width(12.dp))
-                    IconButton(
-                        onClick = { /*TODO*/ },
-                        modifier = Modifier
-                            .size(40.dp)
-                            .background(Brown_Lighter)
                     ) {
                         Icon(
                             imageVector = Icons.Default.Delete,
                             contentDescription = null,
-                            tint = Brown_Dark
+                            tint = Brown_Lighter
                         )
                     }
                 }
@@ -182,13 +168,17 @@ fun SetupScreen() {
             showDialog,
             setShowDialog,
             onPositiveClick = {
-                setShowDialog(false)
-                names.add(name)
-                Toast.makeText(
-                    context,
-                    names.toString(),
-                    Toast.LENGTH_SHORT
-                ).show()
+                if(names.contains(name)){
+                    Toast.makeText(
+                        context,
+                        "Ο/Η $name υπάρχει ήδη.",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+                else{
+                    setShowDialog(false)
+                    names.add(name)
+                }
             }
         )
     }
@@ -242,7 +232,7 @@ fun AddPersonDialog(
                             cursorColor = Brown_Dark,
                             textColor = Brown_Dark,
                             focusedIndicatorColor = Brown,
-                            unfocusedIndicatorColor = Brown
+                            unfocusedIndicatorColor = Brown,
                         ),
                         onValueChange = { newText ->
                             text = newText
